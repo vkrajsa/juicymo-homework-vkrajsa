@@ -1,5 +1,6 @@
 <template>
-  <!-- 
+  <div class="container">
+    <!-- 
     
     
     1] GETs AN ARRAY OF REPOS...
@@ -9,9 +10,9 @@
     
     -->
 
-  <h2>Repo List</h2>
+    <h2>Repo List</h2>
 
-  <!-- 
+    <!-- 
         
       DVE MOZNOSTI (NEBO JICH JE VICE?) 
       1] ROUTER LINK S ID U KAZDEHO ELEMENTU
@@ -29,10 +30,17 @@
       maybe use async routing somehow ??? ()
       
       -->
+    <!-- <BaseBox> to je slot </BaseBox> -->
+  </div>
 </template>
 
 <script>
-export default {};
+// import BaseBox from "@/components/reusables/Box.vue";
+export default {
+  // components: {
+  //   BaseBox,
+  // },
+};
 </script>
 
 <style >

@@ -1,5 +1,24 @@
 // @import "node_modules/bootstrap/scss/bootstrap";
 
-$primary: red;
+// COLORS
+$primary: rgb(36, 41, 47);
+$secondary: rgb(45, 164, 78);
+
+// Body
+$body-bg: white;
+$body-color: $primary;
+
+// Links
+
+$link-decoration: none;
+
+// navbar
+.nav {
+  justify-content: center;
+
+  .nav-link {
+    color: black;
+  }
+}
 
 @import "node_modules/bootstrap/scss/bootstrap";

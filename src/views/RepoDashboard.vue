@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Repo Dashboard</h1>
-    <SearchBar />
+  <main>
     <!-- 
       SEARCH BAR COMPONENT
       1] ALL THE LOGIC CAN HAPPEN IN THE COMPONENT ? YES
@@ -17,12 +15,14 @@
     -->
 
     <!-- USE PROPS OR HAVE THE REPOS IN VUEX?? -->
-    <RepoList />
-  </div>
+    <BaseBox> <SearchBar /></BaseBox>
+    <BaseBox> <RepoList /></BaseBox>
+  </main>
 </template>
 
 <script>
 // @ is an alias to /src
+import BaseBox from "@/components/reusables/Box.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import RepoList from "@/components/RepoList.vue";
 
@@ -30,10 +30,10 @@ export default {
   data() {
     return {};
   },
-
   components: {
     SearchBar,
     RepoList,
+    BaseBox,
   },
 };
 </script>

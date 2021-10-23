@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <h1>Repo Detail</h1>
 
     <!--  
@@ -9,7 +9,7 @@
 
     <RepoCommits :commits="commits" />
     <RepoBranches :branches="branches" />
-  </div>
+  </main>
 </template>
 
 <script>

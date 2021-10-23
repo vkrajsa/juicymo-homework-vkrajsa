@@ -14,5 +14,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
+.container {
+  max-width: 1140px;
+  background: rgb(246, 248, 250);
+  min-height: 100vh;
+}
 </style>

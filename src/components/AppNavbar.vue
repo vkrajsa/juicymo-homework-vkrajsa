@@ -1,9 +1,20 @@
 <template>
-  <div>
-    <h2>App Navbar</h2>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <header class="header">
+    <ul class="nav">
+      <li class="nav-item">
+        <router-link to="/" class="nav-link">Home</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="/about" class="nav-link">About</router-link>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </header>
 </template>
 
 
