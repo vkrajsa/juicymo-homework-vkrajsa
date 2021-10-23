@@ -1,5 +1,5 @@
 <template>
-  <h2>Repo Commits</h2>
+  <section><h2>Repo Commits</h2></section>
 </template>
 
 <script>

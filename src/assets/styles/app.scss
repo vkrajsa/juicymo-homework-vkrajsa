@@ -9,7 +9,6 @@ $body-bg: white;
 $body-color: $primary;
 
 // Links
-
 $link-decoration: none;
 
 // navbar
@@ -19,6 +18,18 @@ $link-decoration: none;
   .nav-link {
     color: black;
   }
+}
+
+// lists
+
+ul {
+  list-style: none;
+  padding-left: 0 !important; // proc nejde bez important ?
+}
+
+section {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 @import "node_modules/bootstrap/scss/bootstrap";

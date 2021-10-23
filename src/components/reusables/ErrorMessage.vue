@@ -1,13 +1,15 @@
 <template>
   <!-- PASS PROPS SHOULD DIFFERENTIATE BETWEEN ERROR AND USER/REPO NOT FOUND -->
-  <div class="alert alert-danger" role="alert">
-    <slot> </slot>
-  </div>
+  <section>
+    <div class="alert alert-danger mt-4" role="alert">
+      <slot> </slot>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

@@ -15,8 +15,9 @@
     -->
 
     <!-- USE PROPS OR HAVE THE REPOS IN VUEX?? -->
-    <BaseBox> <SearchBar /></BaseBox>
-    <BaseBox> <RepoList /></BaseBox>
+    <BaseBox> <SearchBar @error="catchError($event)" /></BaseBox>
+    <ErrorMessage v-if="error"> User not found </ErrorMessage>
+    <RepoList />
   </main>
 </template>
 
@@ -25,15 +26,26 @@
 import BaseBox from "@/components/reusables/Box.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import RepoList from "@/components/RepoList.vue";
+import ErrorMessage from "@/components/reusables/ErrorMessage.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      error: null,
+    };
+  },
+  methods: {
+    catchError(state) {
+      console.log(state);
+      console.log("event emitted");
+      this.error = state;
+    },
   },
   components: {
     SearchBar,
     RepoList,
     BaseBox,
+    ErrorMessage,
   },
 };
 </script>

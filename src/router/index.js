@@ -24,11 +24,11 @@ const routes = [
     component: AboutPage
   },
 
-  {
-    path: '*',
-    name: 'RepoDashboard',
-    component: RepoDashboard
-  }
+  // {
+  //   path: '*',
+  //   name: 'RepoDashboard',
+  //   component: RepoDashboard
+  // }
 ]
 
 const router = new VueRouter({

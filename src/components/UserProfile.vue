@@ -1,5 +1,5 @@
 <template>
-  <h2>User Profile</h2>
+  <section><h2>User Profile</h2></section>
 </template>
 
 <script>
