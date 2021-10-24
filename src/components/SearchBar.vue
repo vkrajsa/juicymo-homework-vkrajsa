@@ -32,8 +32,9 @@ export default {
     async fetchUserRepos() {
       if (this.name !== "") {
         try {
-          await this.$store.dispatch("fetchUserRepos", this.name);
+          const data = await this.$store.dispatch("fetchUserRepos", this.name);
           this.$emit("error", false);
+          console.log("...data" + data);
         } catch (error) {
           console.log(error);
           this.$emit("error", true);

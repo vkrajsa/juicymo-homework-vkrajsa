@@ -6,7 +6,9 @@ import 'bootstrap';
 import './assets/styles/app.scss'
 import i18n from './i18n'
 
-Vue.config.productionTip = false
+import BaseBox from './components/reusables/Box.vue';
+Vue.component('BaseBox', BaseBox);
+
 
 new Vue({
   i18n,

@@ -16,12 +16,14 @@
 
 <script>
 import { mapState } from "vuex";
-import BaseBox from "@/components/reusables/Box.vue";
 
 export default {
   computed: mapState(["userRepos"]),
-  components: {
-    BaseBox,
+  methods: {
+    displayRepo(repoName) {
+      console.log(repoName);
+      this.$router.push("/repo/" + repoName);
+    },
   },
 };
 </script>

@@ -1,9 +1,24 @@
 <template>
-  <section><h2>Repo Branches</h2></section>
+  <section>
+    <ul class="mt-5">
+      <BaseBox v-for="branch in branches" :key="branch.dep">
+        <li>
+          {{ branch.name }}
+        </li>
+      </BaseBox>
+    </ul>
+  </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    branches: {
+      type: Array,
+      default: () => [],
+    },
+  },
+};
 </script>
 
 <style>

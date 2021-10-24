@@ -23,7 +23,7 @@
 
 <script>
 // @ is an alias to /src
-import BaseBox from "@/components/reusables/Box.vue";
+
 import SearchBar from "@/components/SearchBar.vue";
 import RepoList from "@/components/RepoList.vue";
 import ErrorMessage from "@/components/reusables/ErrorMessage.vue";
@@ -44,7 +44,7 @@ export default {
   components: {
     SearchBar,
     RepoList,
-    BaseBox,
+
     ErrorMessage,
   },
 };

@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import auth from '../api/gitKeys.js'
 
-let gitApiURL = "https://api.github.com"
+const gitApiURL = "https://api.github.com"
 
-const auth = {
-  username: 'vkrajsa',
-  password: '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 '
-}
 
 
 Vue.use(Vuex)
@@ -36,10 +33,11 @@ export default new Vuex.Store({
 
     async fetchUserRepos( { commit }, userName )  {
       try {
+        console.log(auth)
         console.log(userName);
         commit("resetRepos");
-        const fetchUserRepos = await axios.get(`${gitApiURL}/users/${userName}/repos` , auth);
-        console.log(fetchUserRepos);
+        const fetchUserRepos = await axios.get(`${gitApiURL}/users/${userName}/repos` , {auth});
+        // console.log(fetchUserRepos);
         commit("updateUserRepos" , fetchUserRepos.data);
         commit("updateUser" , userName);
         
@@ -50,6 +48,26 @@ export default new Vuex.Store({
         throw Error (error);
       }
     },
+
+
+    async fetchRepoData ( state , repoName )  {
+    
+      try {
+
+        const user = state.state.user;
+        const repoData = {};
+        const fetchCommits = await axios.get(`${gitApiURL}/repos/${user}/${repoName}/commits` , {auth});
+        const fetchBranches = await axios.get(`${gitApiURL}/repos/${user}/${repoName}/branches` ,  {auth});
+        console.log(fetchCommits);
+        console.log(fetchBranches);
+        repoData.branches = fetchBranches.data;
+        repoData.commits =  fetchCommits.data;
+        return repoData;
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
   },
 
   modules: {
