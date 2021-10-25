@@ -1,6 +1,8 @@
 <template>
   <section>
     <ul class="mt-5">
+      <h2>Commits</h2>
+
       <BaseBox
         v-for="commit in displayFirstTenCommits(commits)"
         :key="commit.sha"

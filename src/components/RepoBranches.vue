@@ -1,6 +1,7 @@
 <template>
   <section>
     <ul class="mt-5">
+      <h2>Branches</h2>
       <BaseBox v-for="branch in branches" :key="branch.dep">
         <li>
           {{ branch.name }}

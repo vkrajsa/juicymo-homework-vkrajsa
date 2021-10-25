@@ -7,7 +7,7 @@ const gitApiURL = "https://api.github.com"
 
 const auth = {
   username: "vkrajsa",
-  password: "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"
+  password: "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"
 
 }
 
