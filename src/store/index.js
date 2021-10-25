@@ -7,7 +7,7 @@ const gitApiURL = "https://api.github.com"
 
 const auth = {
   username: "vkrajsa",
-  password: "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"
+  password: "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"
 
 }
 
@@ -16,22 +16,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: "",
+    user: {},
     userRepos: [],
   },
   mutations: {
 
-    updateUserRepos: (state, userRepos) => {
+    setUserRepos: (state, userRepos) => {
       state.userRepos = userRepos;
     },
 
-    updateUser: (state, user) => {
+    setUser: (state, user) => {
       state.user = user;
     },
 
-    resetRepos: (state) => {
-      state.userRepos = [];
-    },
 
   },
   actions: {
@@ -40,11 +37,13 @@ export default new Vuex.Store({
     
       console.log(auth)
      
-        commit("resetRepos");
+        commit("setUserRepos", []);
+        commit("setUser", {});
+        const fetchUser = await axios.get(`${gitApiURL}/users/${userName}` , {auth});
         const fetchUserRepos = await axios.get(`${gitApiURL}/users/${userName}/repos` , {auth});
-        // console.log(fetchUserRepos);
-        commit("updateUserRepos" , fetchUserRepos.data);
-        commit("updateUser" , userName);
+        console.log(fetchUser);
+        commit("setUserRepos" , fetchUserRepos.data);
+        commit("setUser" , fetchUser.data);
         return fetchUserRepos;
         
       
@@ -58,7 +57,7 @@ export default new Vuex.Store({
 
     async fetchRepoData ( state , repoName )  {
   
-        const user = state.state.user;
+        const user = state.state.user.login;
         const repoData = {};
         const fetchCommits = await axios.get(`${gitApiURL}/repos/${user}/${repoName}/commits` , {auth});
         const fetchBranches = await axios.get(`${gitApiURL}/repos/${user}/${repoName}/branches` ,  {auth});

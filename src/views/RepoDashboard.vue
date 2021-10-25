@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="pb-4">
     <!-- 
       SEARCH BAR COMPONENT
       1] ALL THE LOGIC CAN HAPPEN IN THE COMPONENT ? YES
@@ -16,6 +16,7 @@
 
     <!-- USE PROPS OR HAVE THE REPOS IN VUEX?? -->
     <SearchBar @error="catchError($event)" />
+    <UserProfile></UserProfile>
     <ErrorMessage v-if="error" :warning="warning">
       User not found
     </ErrorMessage>
@@ -29,6 +30,7 @@
 import SearchBar from "@/components/SearchBar.vue";
 import RepoList from "@/components/RepoList.vue";
 import ErrorMessage from "@/components/reusables/ErrorMessage.vue";
+import UserProfile from "@/components/UserProfile.vue";
 
 export default {
   data() {
@@ -47,6 +49,7 @@ export default {
     SearchBar,
     RepoList,
     ErrorMessage,
+    UserProfile,
   },
 };
 </script>
