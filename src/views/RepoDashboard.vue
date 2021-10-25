@@ -15,8 +15,10 @@
     -->
 
     <!-- USE PROPS OR HAVE THE REPOS IN VUEX?? -->
-    <BaseBox> <SearchBar @error="catchError($event)" /></BaseBox>
-    <ErrorMessage v-if="error"> User not found </ErrorMessage>
+    <SearchBar @error="catchError($event)" />
+    <ErrorMessage v-if="error" :warning="warning">
+      User not found
+    </ErrorMessage>
     <RepoList />
   </main>
 </template>
@@ -44,7 +46,6 @@ export default {
   components: {
     SearchBar,
     RepoList,
-
     ErrorMessage,
   },
 };

@@ -6,9 +6,9 @@
       SEZNAM VŠECH VĚTVÍ REPOZITÁŘE
       SEZNAM 10 COMMITŮ POSLEDNÍCH 
       -->
-    <ErrorMessage v-if="error"> User not found </ErrorMessage>
     <RepoBranches :branches="branches" />
     <RepoCommits :commits="commits" />
+    <ErrorMessage v-if="error"> {{ errorMessage }} </ErrorMessage>
   </main>
 </template>
 
@@ -25,17 +25,24 @@ export default {
       branches: null,
       commits: null,
       error: null,
+      errorMessage: "",
     };
   },
   async created() {
     const repoName = this.$route.params.repoName;
     try {
       const repoData = await this.$store.dispatch("fetchRepoData", repoName);
-      console.log(repoData);
       this.branches = repoData.branches;
       this.commits = repoData.commits;
     } catch (error) {
-      console.log(error);
+      console.log("component error" + error);
+      if (error.response && error.response.status == 409) {
+        this.errorMessage = "Repository is empty.";
+      } else {
+        this.errorMessage =
+          "There has been server error, please check your connection or try again.";
+      }
+
       this.error = true;
     }
   },

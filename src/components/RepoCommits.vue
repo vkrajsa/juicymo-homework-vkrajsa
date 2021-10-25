@@ -23,8 +23,10 @@ export default {
   },
   methods: {
     displayFirstTenCommits(commits) {
-      console.log(commits);
-      return commits.slice(0, 10);
+      console.log("commits component: " + commits);
+      if (commits) {
+        return commits.slice(0, 10);
+      }
     },
   },
 };
