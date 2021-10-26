@@ -1,26 +1,24 @@
 <template>
   <!-- PASS PROPS SHOULD DIFFERENTIATE BETWEEN ERROR AND USER/REPO NOT FOUND -->
-  <section>
-    <div
-      class="alert mt-4"
-      role="alert"
-      :class="{ 'alert-warning': warning, 'alert-danger': !warning }"
-    >
-      <slot> </slot>
-    </div>
-  </section>
+
+  <div class="col-10 col-lg-12 alert alert-warning" role="alert">
+    <slot> </slot>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    warning: {
+    hidden: {
       type: Boolean,
-      default: () => false,
+      default: () => true,
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.isVisible {
+  visibility: hidden;
+}
 </style>

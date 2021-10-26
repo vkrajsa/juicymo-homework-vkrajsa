@@ -1,25 +1,33 @@
 <template>
-  <section>
-    <form v-on:submit.prevent>
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          v-model="name"
-        />
-        <label for="floatingInput">Type name of GitHub user</label>
-      </div>
+  <section class="mt-4">
+    <form v-on:submit.prevent class="mb-4">
       <div class="row">
-        <div class="col d-flex justify-content-end">
-          <button class="btn btn-primary" @click="fetchUserRepos()">
-            <span> search</span>
-          </button>
+        <div class="col-10 col-lg-8">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Type name of GitHub user"
+            v-model="name"
+          />
+        </div>
+        <div class="col-10 col-lg-4">
+          <div class="d-grid gap-2 mt-3 mt-lg-0">
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="button-addon2"
+              @click="fetchUserRepos()"
+            >
+              search
+            </button>
+          </div>
         </div>
       </div>
     </form>
-
-    <ErrorMessage v-if="error"> {{ errorMessage }}</ErrorMessage>
+    <div class="row placeholder-height">
+      <ErrorMessage v-if="error"> {{ errorMessage }}</ErrorMessage>
+    </div>
   </section>
 </template>
 
@@ -53,7 +61,7 @@ export default {
         }
       } catch (error) {
         this.error = true;
-        if (error.response.status == 404) {
+        if (error.response && error.response.status == 404) {
           this.errorMessage = "User hasn't been found on GitHub";
         } else {
           this.errorMessage =
@@ -63,9 +71,19 @@ export default {
       this.loading = false;
     },
   },
-  components: {},
+  directives: {
+    visible: {
+      // directive definition
+      inserted: (el, binding) => {
+        el.style.visibility = binding.value ? "visible" : "hidden";
+      },
+    },
+  },
 };
 </script>
 
-<style>
+<style scoped>
+.placeholder-height {
+  height: 1px;
+}
 </style>
