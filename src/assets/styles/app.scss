@@ -1,12 +1,13 @@
 // @import "node_modules/bootstrap/scss/bootstrap";
 
 // COLORS
-$primary: rgb(36, 41, 47);
-$secondary: rgb(45, 164, 78);
+$color-primary: rgb(36, 41, 47);
+$color-secondary: #2ea44f;
+$color-white: white;
 
 // Body
-$body-bg: white;
-$body-color: $primary;
+$body-bg: $color-white;
+$body-color: $color-primary;
 
 // Links
 $link-decoration: none;
@@ -33,3 +34,5 @@ section {
 }
 
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "./header";
+@import "./typography";

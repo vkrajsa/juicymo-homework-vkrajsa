@@ -1,0 +1,59 @@
+header {
+  background: rgb(4, 13, 33);
+}
+
+.nav-link {
+  &:link,
+  &:visited {
+    color: $color-white;
+    text-transform: uppercase;
+    position: relative;
+    color: $color-white;
+    font-weight: 500;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-white;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+  }
+  &:active,
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+// refactor
+.btn-outline-primary {
+  color: $color-white;
+  border-color: $color-white;
+  &:hover {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+  }
+}
+
+.btn-check:checked + .btn-outline-primary {
+  color: $color-white;
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+}
+
+.color-text-white {
+  color: $color-white !important;
+}
+
+.octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
