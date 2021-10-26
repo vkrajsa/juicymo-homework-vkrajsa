@@ -3,12 +3,19 @@ import VueRouter from 'vue-router'
 import RepoDashboard from '../views/RepoDashboard.vue'
 import RepoDetail from '../views/RepoDetail.vue'
 import AboutPage from '../views/AboutPage.vue'
+import HomePage from '../views/HomePage.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
+    name: 'HomePage',
+    component: HomePage
+  },
+  {
+    path: '/dashboard',
     name: 'RepoDashboard',
     component: RepoDashboard
   },
