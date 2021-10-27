@@ -1,5 +1,12 @@
+#aboutPage,
 #homePage {
   background: rgb(4, 13, 33);
   // 60px is the height of navbar, this makes the homepage fullscreen
   min-height: calc(100vh - 60px);
+}
+
+// ABOUT PAGE
+
+.lead {
+  color: $color-white;
 }
