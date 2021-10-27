@@ -25,21 +25,19 @@ export default {
   async created() {
     const repoName = this.$route.params.repoName;
     try {
+      this.error = false;
       const repoData = await this.$store.dispatch("fetchRepoData", repoName);
       this.branches = repoData.branches;
       this.commits = repoData.commits;
       console.log(this.branches);
-      this.error = false;
     } catch (error) {
-      console.log("component error" + error);
+      this.error = true;
       if (error.response && error.response.status == 409) {
         this.errorMessage = "Repository is empty.";
       } else {
         this.errorMessage =
           "There has been server error, please check your connection or try again.";
       }
-
-      this.error = true;
     }
   },
   components: {

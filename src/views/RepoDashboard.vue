@@ -1,6 +1,6 @@
 <template>
   <main class="pb-4">
-    <SearchBar @error="catchError($event)" />
+    <SearchBar />
     <UserProfile></UserProfile>
     <RepoList />
   </main>
@@ -17,13 +17,7 @@ export default {
       error: null,
     };
   },
-  methods: {
-    catchError(state) {
-      console.log(state);
-      console.log("event emitted");
-      this.error = state;
-    },
-  },
+
   components: {
     SearchBar,
     RepoList,
@@ -32,5 +26,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
