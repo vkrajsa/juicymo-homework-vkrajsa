@@ -11,6 +11,7 @@
             v-model="name"
           />
         </div>
+
         <div class="col-10 col-lg-4">
           <div class="d-grid gap-2 mt-3 mt-lg-0">
             <button
@@ -19,7 +20,12 @@
               id="button-addon2"
               @click="fetchUserRepos()"
             >
-              search
+              <span v-if="loading"
+                ><div class="spinner-border spinner-border-sm">
+                  <span class="visually-hidden">Loading...</span>
+                </div></span
+              >
+              <span v-else>search</span>
             </button>
           </div>
         </div>
@@ -32,6 +38,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -41,26 +48,33 @@ export default {
       errorMessage: "",
     };
   },
+  computed: mapState(["user"]),
   methods: {
     async fetchUserRepos() {
-      this.error = false;
-      this.warning = false;
-
-      if (this.name == "") {
-        // add validation message no username
-        return;
-      }
-
-      this.loading = true;
       try {
+        this.error = false;
+        this.warning = false;
+
+        if (this.name == "") {
+          // add validation message no username
+          return;
+        }
+
+        this.loading = true;
+
+        // redirect after successful search from homepage to dashboard
+        console.log(this.$router.app._route.path);
+
         const repos = await this.$store.dispatch("fetchUserRepos", this.name);
 
         if (repos.data.length < 1) {
           this.error = true;
           this.errorMessage = "User exists but has no repositories";
         }
+        this.loading = false;
       } catch (error) {
         this.error = true;
+        this.loading = false;
         if (error.response && error.response.status == 404) {
           this.errorMessage = "User hasn't been found on GitHub";
         } else {
@@ -68,15 +82,10 @@ export default {
             "There has been server error, please check your connection or try again.";
         }
       }
-      this.loading = false;
-    },
-  },
-  directives: {
-    visible: {
-      // directive definition
-      inserted: (el, binding) => {
-        el.style.visibility = binding.value ? "visible" : "hidden";
-      },
+      // redirect after successful search from homepage to dashboard
+      if (this.error == false && this.$router.app._route.path == "/") {
+        this.$router.replace("/dashboard");
+      }
     },
   },
 };
