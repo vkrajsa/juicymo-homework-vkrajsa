@@ -32,7 +32,8 @@
   "ErrorMessage": {
     "notFound": "Uživatel není na GitHubu",
     "noRepositories": "Uživatel nemá žádné repozitáře",
-    "serverError": "Stala se chyba, zkontrolujte své připojení a zkuste akci opakovat"
+    "serverError": "Stala se chyba, zkontrolujte své připojení a zkuste akci opakovat",
+    "maximumApiCalls": "Dosáhli jste limitu API volání pro uživatele bez autorizace"
   }
  
 }

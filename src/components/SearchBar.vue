@@ -1,6 +1,6 @@
 <template>
   <section class="mt-4">
-    <form v-on:submit.prevent class="mb-4">
+    <form @submit.prevent="fetchUserRepos()" class="mb-4">
       <div class="row">
         <div class="col-10 col-lg-8">
           <input
@@ -66,6 +66,9 @@ export default {
         this.loading = false;
         if (error.response && error.response.status == 404) {
           this.errorMessage = this.$t("ErrorMessage.notFound");
+        }
+        if (error.response && error.response.status == 401) {
+          this.errorMessage = this.$t("ErrorMessage.maximumApiCalls");
         } else {
           this.errorMessage = this.$t("ErrorMessage.serverError");
         }

@@ -25,7 +25,6 @@
     "comments": "comments",
     "commitDate": "Commited on"
   },
-  
   "SearchBar": {
     "button": "search",
     "placeholder": "Type a name of GitHub user"
@@ -33,7 +32,8 @@
   "ErrorMessage": {
     "notFound": "User hasn't been found on GitHub",
     "noRepositories": "User exists but has no repositories",
-    "serverError": "There has been server error, please check your connection or try again."
+    "serverError": "There has been server error, please check your connection or try again.",
+    "maximumApiCalls": "You have reached a limit of API calls for an unauthenticated user."
   }
 
 
