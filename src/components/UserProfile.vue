@@ -1,11 +1,13 @@
 <template>
   <section>
     <div
-      class="card mb-3"
-      style="max-width: 540px"
+      class="card mb-3 m-auto"
+      style="max-width: 540px;"
       v-if="Object.entries(user).length != 0"
+      
     >
-      <div class="row g-0 px-4 justify-content-center align-items-center">
+      <AppSpinner v-if="this.loading"></AppSpinner>
+      <div class="row g-0 px-4">
         <div class="col-4 col-md-2">
           <img :src="user.avatar_url" alt="avatar" style="width: 100%; border-radius: 100px" />
         </div>
@@ -19,7 +21,7 @@
               </ul>          
             </p>
             <p class="card-text">
-              <small class="text-muted">User since {{ user.created_at }}</small>
+              <small class="text-muted">User since {{ user.created_at | formatDate }}</small>
             </p>
           </div>
         </div>
@@ -33,6 +35,12 @@ import { mapState } from "vuex";
 
 export default {
   computed: mapState(["user"]),
+  props: {
+    loading: {
+      type: Boolean,
+      default: () => false,
+    },
+  },
 };
 </script>
 

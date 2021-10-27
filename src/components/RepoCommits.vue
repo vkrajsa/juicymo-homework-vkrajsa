@@ -3,7 +3,9 @@
     <h2>10 commits from repository {{}}</h2>
     <ul>
       <li v-for="commit in displayFirstTenCommits(commits)" :key="commit.sha">
-        <p class="commit-date">Commit on {{ commit.commit.author.date }}</p>
+        <p class="commit-date">
+          Committed on {{ commit.commit.author.date | formatDate }}
+        </p>
         <BaseBox>
           <p class="commit-text">
             <a :href="commit.html_url" target="blank">

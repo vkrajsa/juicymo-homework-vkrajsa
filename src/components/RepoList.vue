@@ -9,7 +9,7 @@
             </p>
             <p class="repo-info">
               {{ repo.language }}
-              | updatedAt: {{ repo.updated_at }}
+              | updatedAt: {{ repo.updated_at | formatDate }}
             </p>
           </li>
         </BaseBox>
