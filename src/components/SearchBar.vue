@@ -31,7 +31,7 @@
         </div>
       </div>
     </form>
-    <div class="row placeholder-height">
+    <div class="row">
       <ErrorMessage v-if="error"> {{ errorMessage }}</ErrorMessage>
     </div>
   </section>
@@ -63,11 +63,13 @@ export default {
         this.loading = false;
       } catch (error) {
         this.error = true;
+        console.log(error.response.status);
         this.loading = false;
-        if (error.response && error.response.status == 404) {
+
+        if (error.response && error.response.status === 404) {
+          console.log(error.response.status);
           this.errorMessage = this.$t("ErrorMessage.notFound");
-        }
-        if (error.response && error.response.status == 401) {
+        } else if (error.response && error.response.status == 401) {
           this.errorMessage = this.$t("ErrorMessage.maximumApiCalls");
         } else {
           this.errorMessage = this.$t("ErrorMessage.serverError");
@@ -83,7 +85,4 @@ export default {
 </script>
 
 <style scoped>
-.placeholder-height {
-  height: 1px;
-}
 </style>
