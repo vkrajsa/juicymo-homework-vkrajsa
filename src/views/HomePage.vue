@@ -9,7 +9,7 @@
           <SearchBar></SearchBar>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-10 col-md-8 col-lg-6">
           <img
             src="../assets/images/globe.png"
             alt="globe"
