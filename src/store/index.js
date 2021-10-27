@@ -1,16 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-// import auth from '../api/gitKeys.js'
+
 
 const gitApiURL = "https://api.github.com"
 
 const auth = {
-  username: "vkrajsa",
-  password: "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"
-
+  username: process.env.VUE_APP_GIT_API_NAME,
+  password: process.env.VUE_APP_GIT_API_PASS
 }
-
 
 Vue.use(Vuex)
 
@@ -19,6 +17,7 @@ export default new Vuex.Store({
     user: {},
     userRepos: [],
   },
+
   mutations: {
 
     setUserRepos: (state, userRepos) => {
@@ -29,14 +28,11 @@ export default new Vuex.Store({
       state.user = user;
     },
 
-
   },
   actions: {
 
     async fetchUserRepos( { commit }, userName )  {
     
-      console.log(auth)
-     
         commit("setUserRepos", []);
         commit("setUser", {});
         const fetchUser = await axios.get(`${gitApiURL}/users/${userName}` , {auth});
@@ -45,18 +41,10 @@ export default new Vuex.Store({
         commit("setUserRepos" , fetchUserRepos.data);
         commit("setUser" , fetchUser.data);
         return fetchUserRepos;
-        
       
-      // catch (error) {
-      //   console.log(error);
-      //   PROC TO BEZ THROW NEHAZE ERROR DO SEARCHBARU?
-      //   throw Error (error);
-      // }
     },
 
-
     async fetchRepoData ( state , repoName )  {
-  
         const user = state.state.user.login;
         const repoData = {};
         const fetchCommits = await axios.get(`${gitApiURL}/repos/${user}/${repoName}/commits` , {auth});
@@ -64,10 +52,8 @@ export default new Vuex.Store({
         repoData.branches = fetchBranches.data;
         repoData.commits =  fetchCommits.data;
         return repoData;
-     
     }
   },
 
-  modules: {
-  }
+
 })
