@@ -2,15 +2,23 @@
 //   font-size: 62.5%;
 // }
 
-// body {
-//   font-size: 1.6rem;
-// }
-
-// $link-decoration: none;
+body {
+  font-family: $font-primary;
+  font-weight: 300;
+  line-height: 1.6;
+}
 
 ul {
   list-style: none;
   padding-left: 0 !important; // proc nejde bez important ?
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 section {

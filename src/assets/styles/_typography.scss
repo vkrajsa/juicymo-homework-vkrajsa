@@ -4,7 +4,8 @@
     format("ttf");
 }
 
-h1 {
+h1,
+h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   color: $color-white;
@@ -13,5 +14,24 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
+  color: $color-white;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  background: -webkit-linear-gradient(
+    -70deg,
+    #2188ff 0%,
+    #804eda 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  text-align: left;
+}
+
+p {
+  color: $color-primary;
+  font-family: $font-primary;
+  margin: 0;
 }

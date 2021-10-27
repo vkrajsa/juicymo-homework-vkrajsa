@@ -1,16 +1,27 @@
 <template>
-  <section>
-    <ul class="mt-5">
-      <h2>Commits</h2>
+  <section id="commits">
+    <h2>10 commits from repository {{}}</h2>
+    <ul>
+      <li v-for="commit in displayFirstTenCommits(commits)" :key="commit.sha">
+        <p class="commit-date">Commit on {{ commit.commit.author.date }}</p>
+        <BaseBox>
+          <p class="commit-text">
+            <a :href="commit.html_url" target="blank">
+              {{ commit.commit.message }}</a
+            >
+          </p>
+          <p class="commit-info">
+            <img
+              :src="commit.author.avatar_url"
+              alt="avatar"
+              class="commit-avatar"
+            />
+            {{ commit.commit.author.name }}
 
-      <BaseBox
-        v-for="commit in displayFirstTenCommits(commits)"
-        :key="commit.sha"
-      >
-        <li>
-          {{ commit.commit.message }}
-        </li>
-      </BaseBox>
+            | comments: {{ commit.commit.comment_count }}
+          </p>
+        </BaseBox>
+      </li>
     </ul>
   </section>
 </template>
@@ -25,7 +36,8 @@ export default {
   },
   methods: {
     displayFirstTenCommits(commits) {
-      console.log("commits component: " + commits);
+      console.log("commits component: " + commits[0]);
+      console.log(this.$router);
       if (commits) {
         return commits.slice(0, 10);
       }
@@ -34,5 +46,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>
