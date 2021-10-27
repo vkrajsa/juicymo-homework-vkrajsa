@@ -7,7 +7,7 @@
             type="text"
             class="form-control"
             id="floatingInput"
-            placeholder="Type name of GitHub user"
+            :placeholder="$t('SearchBar.placeholder')"
             v-model="name"
           />
         </div>
@@ -25,7 +25,7 @@
                   <span class="visually-hidden">Loading...</span>
                 </div></span
               >
-              <span v-else>search</span>
+              <span v-else>{{ $t("SearchBar.button") }}</span>
             </button>
           </div>
         </div>
@@ -53,33 +53,21 @@ export default {
     async fetchUserRepos() {
       try {
         this.error = false;
-        this.warning = false;
-
-        if (this.name == "") {
-          // add validation message no username
-          return;
-        }
-
         this.loading = true;
-
-        // redirect after successful search from homepage to dashboard
-        console.log(this.$router.app._route.path);
-
         const repos = await this.$store.dispatch("fetchUserRepos", this.name);
 
         if (repos.data.length < 1) {
           this.error = true;
-          this.errorMessage = "User exists but has no repositories";
+          this.errorMessage = this.$t("ErrorMessage.noRepositories");
         }
         this.loading = false;
       } catch (error) {
         this.error = true;
         this.loading = false;
         if (error.response && error.response.status == 404) {
-          this.errorMessage = "User hasn't been found on GitHub";
+          this.errorMessage = this.$t("ErrorMessage.notFound");
         } else {
-          this.errorMessage =
-            "There has been server error, please check your connection or try again.";
+          this.errorMessage = this.$t("ErrorMessage.serverError");
         }
       }
       // redirect after successful search from homepage to dashboard

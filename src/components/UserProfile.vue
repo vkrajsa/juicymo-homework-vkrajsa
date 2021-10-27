@@ -2,26 +2,23 @@
   <section>
     <div
       class="card mb-3 m-auto"
-      style="max-width: 540px;"
       v-if="Object.entries(user).length != 0"
-      
     >
-      <AppSpinner v-if="this.loading"></AppSpinner>
       <div class="row g-0 px-4">
         <div class="col-4 col-md-2">
-          <img :src="user.avatar_url" alt="avatar" style="width: 100%; border-radius: 100px" />
+          <img :src="user.avatar_url" alt="avatar" class="avatar" />
         </div>
         <div class="col-8 col-md-10">
           <div class="card-body">
             <h5 class="card-title">{{ user.login }}</h5>
             <p class="card-text">
               <ul>
-                <li>Followers:  {{ user.followers }}</li>
-                <li>Public repos::  {{ user.public_repos }}</li>
+                <li> {{ $t("RepoDashboard.followers") }}:  {{ user.followers }}</li>
+                <li> {{ $t("RepoDashboard.publicRepos") }}:  {{ user.public_repos }}</li>
               </ul>          
             </p>
             <p class="card-text">
-              <small class="text-muted">User since {{ user.created_at | formatDate }}</small>
+              <small class="text-muted">{{ $t("RepoDashboard.userSince") }}  {{ user.created_at | formatDate }}</small>
             </p>
           </div>
         </div>
@@ -44,5 +41,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  max-width: 540px;
+}
+.avatar {
+  width: 100%;
+  border-radius: 100px;
+}
 </style>

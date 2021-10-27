@@ -1,10 +1,11 @@
 <template>
   <section id="commits">
-    <h2>10 commits from repository {{}}</h2>
+    <h2>{{ $t("RepoCommits.h2") }}</h2>
     <ul>
       <li v-for="commit in displayFirstTenCommits(commits)" :key="commit.sha">
         <p class="commit-date">
-          Committed on {{ commit.commit.author.date | formatDate }}
+          {{ $t("RepoCommits.commitDate") }}
+          {{ commit.commit.author.date | formatDate }}
         </p>
         <BaseBox>
           <p class="commit-text">
@@ -21,7 +22,7 @@
             />
             {{ commit.commit.author.name }}
 
-            | comments: {{ commit.commit.comment_count }}
+            | {{ $t("RepoCommits.comments") }} {{ commit.commit.comment_count }}
           </p>
         </BaseBox>
       </li>

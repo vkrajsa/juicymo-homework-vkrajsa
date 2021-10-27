@@ -1,14 +1,8 @@
 <template>
   <main>
-    <h1>Repo Detail</h1>
-
-    <!--  
-      SEZNAM VŠECH VĚTVÍ REPOZITÁŘE
-      SEZNAM 10 COMMITŮ POSLEDNÍCH 
-      -->
-    <RepoBranches :branches="branches" />
-    <RepoCommits :commits="commits" />
     <ErrorMessage v-if="error"> {{ errorMessage }} </ErrorMessage>
+    <RepoBranches :branches="branches" v-if="!error && error != null" />
+    <RepoCommits :commits="commits" v-if="!error && error != null" />
   </main>
 </template>
 
@@ -34,6 +28,8 @@ export default {
       const repoData = await this.$store.dispatch("fetchRepoData", repoName);
       this.branches = repoData.branches;
       this.commits = repoData.commits;
+      console.log(this.branches);
+      this.error = false;
     } catch (error) {
       console.log("component error" + error);
       if (error.response && error.response.status == 409) {

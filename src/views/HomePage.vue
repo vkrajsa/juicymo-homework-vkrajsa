@@ -3,12 +3,19 @@
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row g-5">
         <div class="col-lg-6">
-          <h1 class="my-5">Find anyone on GitHub in seconds</h1>
+          <h1 class="my-5">
+            {{ $t("HomePage.h1") }}
+          </h1>
           <SearchBar></SearchBar>
         </div>
 
         <div class="col-lg-6">
-          <img src="../assets/images/globe.png" alt="globe" loading="lazy" />
+          <img
+            src="../assets/images/globe.png"
+            alt="globe"
+            class="spin-animation"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -24,9 +31,4 @@ export default {
 };
 </script>
 <style scoped>
-.astro-guy {
-  position: absolute;
-  bottom: 0;
-  widows: 100%;
-}
 </style>

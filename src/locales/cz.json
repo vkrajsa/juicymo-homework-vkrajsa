@@ -1,0 +1,38 @@
+{
+  "AppHeader": {
+    "link-1": "domů",
+    "link-2": "o aplikaci"
+  },
+  "HomePage": {
+      "h1": "Na GitHubu kohokoliv za pár sekund"
+  },
+  "AboutPage": {
+    "h1": "Ahoj, tady Vojta",
+    "lead": "Poslední 4 roky jsem kódoval weby pro vlastní potřebu a pro zábavu. Rozhodl jsem se změnit kariérní směr a z vod marketingu se přesunout do front-end developmentu. Hledám tým, který vezme pod svá křídla začínajícího frontendistu.",
+    "button": "portfólio"
+  },
+  "RepoDashboard": {
+    "followers": "Sledující",
+    "publicRepos": "Veřejné repozitáře",
+    "userSince": "Uživatel od",
+    "upatedAt": "aktualizováno"
+  },
+  "RepoBranches": {
+    "h2": "větve repozitáře"
+  },
+  "RepoCommits": {
+    "h2": "prvních 10 commitů",
+    "comments": "komentáře",
+    "commitDate": "Commit"
+  },
+  "SearchBar": {
+    "button": "hledat",
+    "placeholder": "Zadej jméno GitHub uživatele"
+  },
+  "ErrorMessage": {
+    "notFound": "Uživatel není na GitHubu",
+    "noRepositories": "Uživatel nemá žádné repozitáře",
+    "serverError": "Stala se chyba, zkontrolujte své připojení a zkuste akci opakovat"
+  }
+ 
+}

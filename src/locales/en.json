@@ -1,3 +1,40 @@
 {
-  "message": "hello i18n !!"
+  "AppHeader": {
+    "link-1": "home",
+    "link-2": "about"
+  },
+  "HomePage": {
+    "h1": "Find anyone on GitHub in seconds"
+  },
+  "AboutPage": {
+    "h1": "Hi, it's Vojta",
+    "lead": "Last 4 years I have been coding websites for my friends and for the fun of doing it. This year I have decided to reinvent myself and switch a career from a marketer to a front-end developer. I am looking for a team that will appreaciate passionate junior on the beginning of his journey. ",
+    "button": "portfolio"
+  },
+  "RepoDashboard": {
+    "followers": "Followers",
+    "publicRepos": "Public repositories",
+    "userSince": "User since",
+    "upatedAt": "upatedAt"
+  },
+  "RepoBranches": {
+    "h2": "branches of"
+  },
+  "RepoCommits": {
+    "h2": "first 10 commits",
+    "comments": "comments",
+    "commitDate": "Commited on"
+  },
+  
+  "SearchBar": {
+    "button": "search",
+    "placeholder": "Type a name of GitHub user"
+  },
+  "ErrorMessage": {
+    "notFound": "User hasn't been found on GitHub",
+    "noRepositories": "User exists but has no repositories",
+    "serverError": "There has been server error, please check your connection or try again."
+  }
+
+
 }

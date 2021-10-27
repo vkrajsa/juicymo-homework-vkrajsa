@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul class="mt-5">
-      <h2>branches of {{ this.$route.params.repoName }}</h2>
+      <h2>{{ $t("RepoBranches.h2") }} {{ this.$route.params.repoName }}</h2>
 
       <BaseBox v-for="branch in branches" :key="branch.dep">
         <li>
