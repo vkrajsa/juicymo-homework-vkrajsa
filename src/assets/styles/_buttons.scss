@@ -1,15 +1,20 @@
 .btn {
   text-transform: uppercase;
   font-weight: 500;
-
   border-radius: 0.5rem;
 }
 
 .btn-primary {
+  font-family: $font-primary;
+  font-weight: 700;
   background: $color-secondary;
-  height: 3rem;
+  padding: 0.5rem 0;
   border: 2px solid $color-secondary;
+  &:focus,
+  &:active,
   &:hover {
     @extend .btn-primary;
+    background: $color-secondary-hover;
+    border: 2px solid $color-secondary-hover;
   }
 }

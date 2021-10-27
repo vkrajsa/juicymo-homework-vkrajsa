@@ -1,13 +1,15 @@
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url("../fonts/Raleway-VariableFont_wght.ttf")
+    format("ttf");
+}
+
 // COLORS
 $color-primary: rgb(4, 13, 33);
 $color-primary-hover: rgb(3, 19, 54);
 $color-secondary: #2ea44f;
+$color-secondary-hover: #40db6c;
 $color-white: white;
-$color-funky: -webkit-linear-gradient(
-  -70deg,
-  #2188ff 0%,
-  #804eda 100%
-);
 
 // Body
 $body-bg: $color-white;

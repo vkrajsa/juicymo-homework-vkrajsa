@@ -15,6 +15,7 @@
               href="https://www.vojtechkrajsa.cz"
               class="btn btn-primary"
               target="blank"
+              role="button"
               >{{ $t("AboutPage.button") }}</a
             >
           </div>

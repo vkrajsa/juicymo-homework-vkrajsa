@@ -5,6 +5,10 @@ h1 {
   text-align: center;
   font-size: 1.5rem;
 
+  @media (min-width: 350px) {
+    font-size: 1.7rem;
+  }
+
   @media (min-width: 765px) {
     font-size: 2rem;
   }
