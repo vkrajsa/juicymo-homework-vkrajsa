@@ -12,9 +12,10 @@
           </p>
           <p class="commit-info">
             <img
-              :src="commit.author.avatar_url"
+              :src="setAvatar(commit)"
               alt="avatar"
               class="commit-avatar"
+              v-if="commit.author"
             />
             {{ commit.commit.author.name }}
 
@@ -41,6 +42,12 @@ export default {
       if (commits) {
         return commits.slice(0, 10);
       }
+    },
+    setAvatar(commit) {
+      if (!commit.author) {
+        return;
+      }
+      return commit.author.avatar_url;
     },
   },
 };
